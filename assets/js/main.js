@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = mobileNav.classList.contains('open');
       menuToggle.classList.toggle('open');
       mobileNav.classList.toggle('open');
-      document.body.style.overflow = isOpen ? '' : 'hidden';
       menuToggle.setAttribute('aria-expanded', String(!isOpen));
     });
   }
@@ -76,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       if (menuToggle) { menuToggle.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false'); }
       if (mobileNav)  mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
     });
   });
 
