@@ -42,40 +42,52 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ===========================
-     MOBILE MENU TOGGLE
+     MOBİL DRAWER MENÜ
      =========================== */
   const menuToggle = document.querySelector('.menu-toggle');
-  const mobileNav  = document.querySelector('.mobile-nav');
+  const mobDrawer  = document.getElementById('mobDrawer');
+  const mobClose   = document.getElementById('mobClose');
+  const mobBackdrop = document.getElementById('mobBackdrop');
 
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.contains('open');
-      menuToggle.classList.toggle('open');
-      mobileNav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(!isOpen));
-    });
+  function openDrawer() {
+    if (!mobDrawer) return;
+    mobDrawer.classList.add('open');
+    menuToggle?.classList.add('open');
+    menuToggle?.setAttribute('aria-expanded', 'true');
   }
 
-  /* Mobile Services Submenu */
-  const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
-  const mobileServicesSub    = document.querySelector('.mobile-nav-sub');
-
-  if (mobileServicesToggle && mobileServicesSub) {
-    mobileServicesToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isOpen = mobileServicesSub.style.display === 'flex';
-      mobileServicesSub.style.display = isOpen ? 'none' : 'flex';
-      const arrow = mobileServicesToggle.querySelector('.nav-arrow-m');
-      if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
-    });
+  function closeDrawer() {
+    if (!mobDrawer) return;
+    mobDrawer.classList.remove('open');
+    menuToggle?.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    /* Alt menüyü de kapat */
+    document.querySelectorAll('.mob-sub-menu.open').forEach(sub => sub.classList.remove('open'));
+    document.querySelectorAll('.mob-has-sub[aria-expanded="true"]').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
   }
 
-  /* Close mobile menu on link click */
-  document.querySelectorAll('.mobile-nav-link:not(.mobile-services-toggle), .mobile-nav-sub-link').forEach(link => {
-    link.addEventListener('click', () => {
-      if (menuToggle) { menuToggle.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false'); }
-      if (mobileNav)  mobileNav.classList.remove('open');
+  menuToggle?.addEventListener('click', () => {
+    mobDrawer?.classList.contains('open') ? closeDrawer() : openDrawer();
+  });
+  mobClose?.addEventListener('click', closeDrawer);
+  mobBackdrop?.addEventListener('click', closeDrawer);
+
+  /* Hizmetlerimiz alt menü aç/kapat */
+  document.querySelectorAll('.mob-has-sub').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sub    = btn.nextElementSibling;
+      const isOpen = sub?.classList.contains('open');
+      sub?.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
     });
+  });
+
+  /* Drawer içi linklere tıklayınca kapat */
+  document.querySelectorAll('.mob-sub-item, .mob-panel-footer a').forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+  document.querySelectorAll('.mob-nav-item:not(.mob-has-sub)').forEach(link => {
+    link.addEventListener('click', closeDrawer);
   });
 
   /* ===========================

@@ -49,14 +49,13 @@
    RESET & BASE
    =========================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: clip; }
 body {
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
   color: var(--dark);
   background: var(--white);
   line-height: 1.6;
-  overflow-x: hidden;
-  max-width: 100vw;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -501,51 +500,129 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
 
-/* Mobile Nav */
-.mobile-nav {
+/* ===========================
+   MOBİL DRAWER MENÜ
+   =========================== */
+.mob-drawer {
   display: none;
-  flex-direction: column;
-  padding: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+}
+.mob-drawer.open { display: block; }
+
+.mob-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+}
+.mob-drawer.open .mob-backdrop { background: rgba(0, 0, 0, 0.5); }
+
+.mob-panel {
+  position: absolute;
+  top: 0; right: 0;
+  width: 82%;
+  max-width: 310px;
+  height: 100%;
   background: var(--white);
-  border-top: 2px solid var(--green);
-  box-shadow: 0 8px 32px rgba(15,23,42,0.12);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  box-shadow: -4px 0 32px rgba(15, 23, 42, 0.18);
 }
-.mobile-nav.open {
-  max-height: 100vh;
-  padding: 16px 20px 24px;
-}
-.mobile-nav-link {
+.mob-drawer.open .mob-panel { transform: translateX(0); }
+
+.mob-panel-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  font-size: 14.5px;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--gray-border);
+  flex-shrink: 0;
+}
+.mob-panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: 0.01em;
+}
+.mob-panel-close {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gray);
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+.mob-panel-close:hover { background: var(--gray-soft); color: var(--dark); }
+
+.mob-nav { flex: 1; padding: 8px 0; overflow-y: auto; }
+
+.mob-nav-group { display: flex; flex-direction: column; }
+
+.mob-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--dark);
-  border-radius: var(--radius);
-  transition: all var(--transition);
+  text-align: left;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  border-bottom: 1px solid var(--gray-border);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.mobile-nav-link:hover { background: var(--green-soft); color: var(--green); }
-.mobile-nav-sub {
+.mob-nav-item:hover, .mob-nav-item:active { background: var(--green-soft); color: var(--green); }
+
+.mob-chevron {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  color: var(--gray-mid);
+}
+.mob-has-sub[aria-expanded="true"] .mob-chevron { transform: rotate(180deg); }
+.mob-has-sub[aria-expanded="true"] { color: var(--green); background: var(--green-soft); }
+
+.mob-sub-menu {
   display: none;
   flex-direction: column;
-  padding: 4px 0 4px 16px;
-  border-left: 2px solid var(--green-border);
-  margin: 4px 0 4px 24px;
+  background: var(--gray-light);
+  border-bottom: 1px solid var(--gray-border);
 }
-.mobile-nav-sub-link {
+.mob-sub-menu.open { display: flex; }
+
+.mob-sub-item {
   display: block;
-  padding: 8px 12px;
-  font-size: 13px;
+  padding: 13px 20px 13px 36px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--gray);
-  border-radius: var(--radius);
-  transition: all var(--transition);
+  transition: background var(--transition), color var(--transition);
+  border-bottom: 1px solid var(--gray-border);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.mobile-nav-sub-link:hover { background: var(--green-soft); color: var(--green); }
+.mob-sub-item:last-child { border-bottom: none; }
+.mob-sub-item:hover, .mob-sub-item:active { color: var(--green); background: var(--green-soft); }
+
+.mob-panel-footer {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--gray-border);
+  flex-shrink: 0;
+}
+.mob-panel-footer .btn { width: 100%; justify-content: center; text-align: center; }
 
 /* ===========================
    FLOATING WHATSAPP BUTTON
@@ -2181,7 +2258,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 768px) {
   .nav { display: none; }
   .menu-toggle { display: flex; }
-  .mobile-nav { display: flex; }
   .wa-link { display: none; }
   .lang-switcher { display: none; }
   .header-inner { gap: 16px; }
@@ -2657,23 +2733,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .header-right .btn-primary { font-size: 13px; padding: 8px 14px; }
 }
 
-/* Mobile Nav: link boyutları */
-@media (max-width: 768px) {
-  .mobile-nav-link {
-    font-size: 15px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--gray-border);
-  }
-  .mobile-nav-sub-link {
-    font-size: 14px;
-    padding: 10px 0 10px 16px;
-  }
-  .mobile-nav .btn {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-}
 
 /* Hizmetler sayfası: servis grid mobil */
 @media (max-width: 768px) {

@@ -63,22 +63,40 @@
   </div>
 </header>
 
-<!-- Mobile Nav -->
-<nav class="mobile-nav" aria-label="Mobil Menü">
-  <a href="hizmetler.html" class="mobile-nav-link mobile-services-toggle">Hizmetlerimiz ▾</a>
-  <div class="mobile-nav-sub" style="display:none;">
-    <a href="hizmetler.html#turkiye-geneli" class="mobile-nav-sub-link">Türkiye Geneli Lojistik</a>
-    <a href="hizmetler.html#uluslararasi" class="mobile-nav-sub-link">Uluslararası Taşımacılık</a>
-    <a href="hizmetler.html#konteyner" class="mobile-nav-sub-link">Konteyner Lojistiği</a>
-    <a href="hizmetler.html#tir" class="mobile-nav-sub-link">Tır Organizasyonu &amp; Filo</a>
-    <a href="hizmetler.html#deporyum" class="mobile-nav-sub-link">Depolama – Prime Deporyum</a>
-    <a href="hizmetler.html#evden-eve" class="mobile-nav-sub-link">Evden Eve Nakliyat</a>
+<!-- Mobile Drawer -->
+<div class="mob-drawer" id="mobDrawer">
+  <div class="mob-backdrop" id="mobBackdrop"></div>
+  <div class="mob-panel">
+    <div class="mob-panel-header">
+      <span class="mob-panel-title">Prime Express Lojistik</span>
+      <button class="mob-panel-close" id="mobClose" aria-label="Menüyü Kapat">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav class="mob-nav">
+      <div class="mob-nav-group">
+        <button class="mob-nav-item mob-has-sub" aria-expanded="false">
+          Hizmetlerimiz
+          <svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mob-sub-menu">
+          <a href="hizmetler.html#turkiye-geneli" class="mob-sub-item">Türkiye Geneli Lojistik</a>
+          <a href="hizmetler.html#uluslararasi" class="mob-sub-item">Uluslararası Taşımacılık</a>
+          <a href="hizmetler.html#konteyner" class="mob-sub-item">Konteyner Lojistiği</a>
+          <a href="hizmetler.html#tir" class="mob-sub-item">Tır Organizasyonu &amp; Filo</a>
+          <a href="hizmetler.html#deporyum" class="mob-sub-item">Depolama – Prime Deporyum</a>
+          <a href="hizmetler.html#evden-eve" class="mob-sub-item">Evden Eve Nakliyat</a>
+        </div>
+      </div>
+      <a href="kurumsal.html" class="mob-nav-item">Kurumsal</a>
+      <a href="iletisim.html" class="mob-nav-item">İletişim</a>
+    </nav>
+    <div class="mob-panel-footer">
+      <a href="index.html#teklif" class="btn btn-primary">Teklif Al</a>
+      <a href="https://wa.me/905322902235" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp ile Yazın</a>
+    </div>
   </div>
-  <a href="kurumsal.html" class="mobile-nav-link">Kurumsal</a>
-  <a href="iletisim.html" class="mobile-nav-link">İletişim</a>
-  <a href="index.html#teklif" class="btn btn-primary" style="margin-top:12px;">Teklif Al</a>
-  <a href="https://wa.me/905322902235" class="btn btn-outline" style="margin-top:8px;" target="_blank" rel="noopener">WhatsApp ile Yazın</a>
-</nav>
+</div>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
