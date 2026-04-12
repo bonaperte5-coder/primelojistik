@@ -18,7 +18,6 @@ Thumbs.db
 # Gereksiz dosyalar (üretimde olmamamalı)
 prime-lojistik-website*.md
 orjinal_logo.jpeg
-lojistik_video.mp4
 
 # OG image generator (build aracı, kaynak kodu repoda kalsın ama sharp kütüphanesi node_modules'ta)
 # generate-og.js repoda kalabilir; çıktı (og-image.png) zaten assets/img/ altında commit edilir
