@@ -91,32 +91,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ===========================
-     HERO SLOGAN DEVİR ANİMASYONU
+     HİZMETLER BAŞLIĞI DEVİR ANİMASYONU
      =========================== */
-  const heroHighlight = document.querySelector('.hero-title .highlight');
-  if (heroHighlight) {
-    const slogans = [
-      'Güçlü Operasyon',
-      'Hızlı Teslimat',
-      'Güvenli Taşıma',
-      'Akıllı Çözümler',
-      'Kesintisiz Lojistik',
+  const svcTitle = document.getElementById('hizmetler-title');
+  if (svcTitle) {
+    const svcSlogans = [
+      'Yükünüz Bizimle Güvende',
+      '81 İlde Hızlı Teslimat',
+      'CMR Sigortalı Taşıma',
+      '7/24 Kesintisiz Hizmet',
+      'Güvenilir Lojistik Ortağınız',
     ];
-    let sloganIdx = 0;
+    let svcIdx = 0;
+    svcTitle.classList.add('cycling-title');
 
     setInterval(() => {
-      sloganIdx = (sloganIdx + 1) % slogans.length;
+      svcIdx = (svcIdx + 1) % svcSlogans.length;
 
-      // Çıkış animasyonu
-      heroHighlight.classList.add('slogan-exit');
-      heroHighlight.classList.remove('slogan-enter');
+      svcTitle.classList.add('slogan-exit');
+      svcTitle.classList.remove('slogan-enter');
 
       setTimeout(() => {
-        // Metni değiştir
-        heroHighlight.textContent = slogans[sloganIdx];
-        // Giriş animasyonu
-        heroHighlight.classList.remove('slogan-exit');
-        heroHighlight.classList.add('slogan-enter');
+        svcTitle.textContent = svcSlogans[svcIdx];
+        svcTitle.classList.remove('slogan-exit');
+        svcTitle.classList.add('slogan-enter');
       }, 340);
     }, 3200);
   }
