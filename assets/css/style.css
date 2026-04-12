@@ -2614,3 +2614,111 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--green);
   transform: translateY(-1px);
 }
+
+/* =============================================
+   MOBİL OPTİMİZASYON — Kapsamlı Düzeltmeler
+   ============================================= */
+
+/* Header: telefon butonunu küçük ekranlarda gizle */
+@media (max-width: 520px) {
+  .header-right .btn-outline { display: none; }
+  .header-inner { gap: 8px; }
+  .header { padding: 0; }
+}
+
+/* Header: orta boy mobilerde WhatsApp ve telefon gizle, sadece Teklif Al + hamburger */
+@media (max-width: 768px) {
+  .header-right { gap: 8px; }
+  .header-right .btn-outline { font-size: 12px; padding: 7px 12px; }
+  .header-right .btn-primary { font-size: 13px; padding: 8px 14px; }
+}
+
+/* Mobile Nav: daha iyi görünüm */
+@media (max-width: 768px) {
+  .mobile-nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    border-top: 2px solid var(--green);
+    max-height: 0;
+    overflow: hidden;
+  }
+  .mobile-nav.open {
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+  .mobile-nav-link {
+    font-size: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .mobile-nav-sub-link {
+    font-size: 14px;
+    padding: 10px 0 10px 16px;
+  }
+  .mobile-nav .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Hizmetler sayfası: servis grid mobil */
+@media (max-width: 768px) {
+  .service-detail { padding: 52px 0; }
+  .service-detail-grid { grid-template-columns: 1fr !important; gap: 24px !important; direction: ltr !important; }
+  .service-detail-grid > * { direction: ltr !important; }
+  .service-detail img { width: 100%; max-height: 240px; object-fit: cover; border-radius: var(--radius-lg); }
+}
+
+/* Kurumsal sayfası: grid mobil */
+@media (max-width: 768px) {
+  .corp-about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .corp-vm-cards { grid-template-columns: 1fr; }
+  .corp-why-grid { grid-template-columns: repeat(2, 1fr); }
+  .corp-values-grid { grid-template-columns: 1fr; }
+  .corp-value-item { border-right: none; border-bottom: 1px solid var(--gray-border); }
+  .corp-stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .corp-hero-title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+  .corp-section-title { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+  .corp-vm-card { padding: 28px 24px; }
+  .corp-cta-actions { flex-direction: column; align-items: center; }
+  .corp-cta-actions .btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .corp-why-grid { grid-template-columns: 1fr; }
+  .corp-hero { padding: 48px 0 40px; }
+  .corp-about { padding: 48px 0; }
+  .corp-vm { padding: 48px 0; }
+  .corp-values { padding: 48px 0; }
+  .corp-why { padding: 48px 0; }
+}
+
+/* İletişim sayfası mobil */
+@media (max-width: 768px) {
+  .page-hero { padding: 48px 0 52px; }
+  .page-hero-title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+}
+
+/* CTA banner mobil */
+@media (max-width: 768px) {
+  .cta-banner { padding: 48px 0; }
+  .cta-banner-title { font-size: clamp(20px, 5.5vw, 30px); }
+  .cta-banner-actions { flex-direction: column; align-items: center; gap: 12px; }
+  .cta-banner-actions .btn { width: 100%; max-width: 320px; justify-content: center; }
+}
+
+/* Genel sayfa bölümleri mobil padding */
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .breadcrumb { padding: 10px 0; }
+  .legal-page { padding: 28px 16px 52px; }
+  .legal-page h1 { font-size: clamp(22px, 6vw, 32px); }
+  .legal-page h2 { font-size: 17px; }
+  .legal-page table { font-size: 12px; }
+  .legal-page table th,
+  .legal-page table td { padding: 7px 8px; }
+}
