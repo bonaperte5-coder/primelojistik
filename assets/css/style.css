@@ -504,17 +504,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .mobile-nav {
   display: none;
   flex-direction: column;
-  padding: 16px 24px 24px;
+  padding: 0;
   background: var(--white);
-  border-top: 1px solid var(--gray-border);
+  border-top: 2px solid var(--green);
   box-shadow: 0 8px 32px rgba(15,23,42,0.12);
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--transition-slow), padding var(--transition-slow);
+  transition: max-height 0.35s ease, padding 0.35s ease;
 }
 .mobile-nav.open {
   max-height: 100vh;
-  padding: 16px 24px 24px;
+  padding: 16px 20px 24px;
 }
 .mobile-nav-link {
   display: flex;
@@ -2633,22 +2633,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .header-right .btn-primary { font-size: 13px; padding: 8px 14px; }
 }
 
-/* Mobile Nav: daha iyi görünüm */
+/* Mobile Nav: link boyutları */
 @media (max-width: 768px) {
-  .mobile-nav {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    border-top: 2px solid var(--green);
-    max-height: 0;
-    overflow: hidden;
-  }
-  .mobile-nav.open {
-    max-height: calc(100vh - 64px);
-    overflow-y: auto;
-  }
   .mobile-nav-link {
     font-size: 15px;
     padding: 14px 0;
