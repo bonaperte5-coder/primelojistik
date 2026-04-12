@@ -822,6 +822,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: inline-block;
+  transition: opacity 0.32s ease, transform 0.32s ease;
+}
+.hero-title .highlight.slogan-exit {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.hero-title .highlight.slogan-enter {
+  animation: slogan-enter 0.38s ease forwards;
+}
+@keyframes slogan-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .hero-subtitle {
   font-size: 18px;

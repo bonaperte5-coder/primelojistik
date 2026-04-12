@@ -91,6 +91,37 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ===========================
+     HERO SLOGAN DEVİR ANİMASYONU
+     =========================== */
+  const heroHighlight = document.querySelector('.hero-title .highlight');
+  if (heroHighlight) {
+    const slogans = [
+      'Güçlü Operasyon',
+      'Hızlı Teslimat',
+      'Güvenli Taşıma',
+      'Akıllı Çözümler',
+      'Kesintisiz Lojistik',
+    ];
+    let sloganIdx = 0;
+
+    setInterval(() => {
+      sloganIdx = (sloganIdx + 1) % slogans.length;
+
+      // Çıkış animasyonu
+      heroHighlight.classList.add('slogan-exit');
+      heroHighlight.classList.remove('slogan-enter');
+
+      setTimeout(() => {
+        // Metni değiştir
+        heroHighlight.textContent = slogans[sloganIdx];
+        // Giriş animasyonu
+        heroHighlight.classList.remove('slogan-exit');
+        heroHighlight.classList.add('slogan-enter');
+      }, 340);
+    }, 3200);
+  }
+
+  /* ===========================
      SCROLL TO TOP
      =========================== */
   const scrollTopBtn = document.getElementById('scrollTop');
