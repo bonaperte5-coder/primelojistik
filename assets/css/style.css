@@ -824,22 +824,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background-clip: text;
 }
 
-/* Dönen başlık animasyonu */
-.cycling-title {
-  display: inline-block;
-  transition: opacity 0.32s ease, transform 0.32s ease;
-}
-.cycling-title.slogan-exit {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-.cycling-title.slogan-enter {
-  animation: slogan-enter 0.38s ease forwards;
-}
-@keyframes slogan-enter {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 .hero-subtitle {
   font-size: 18px;
   color: rgba(255,255,255,0.72);

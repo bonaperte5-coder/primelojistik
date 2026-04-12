@@ -91,35 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ===========================
-     HİZMETLER BAŞLIĞI DEVİR ANİMASYONU
-     =========================== */
-  const svcTitle = document.getElementById('hizmetler-title');
-  if (svcTitle) {
-    const svcSlogans = [
-      'Yükünüz Bizimle Güvende',
-      '81 İlde Hızlı Teslimat',
-      'CMR Sigortalı Taşıma',
-      '7/24 Kesintisiz Hizmet',
-      'Güvenilir Lojistik Ortağınız',
-    ];
-    let svcIdx = 0;
-    svcTitle.classList.add('cycling-title');
-
-    setInterval(() => {
-      svcIdx = (svcIdx + 1) % svcSlogans.length;
-
-      svcTitle.classList.add('slogan-exit');
-      svcTitle.classList.remove('slogan-enter');
-
-      setTimeout(() => {
-        svcTitle.textContent = svcSlogans[svcIdx];
-        svcTitle.classList.remove('slogan-exit');
-        svcTitle.classList.add('slogan-enter');
-      }, 340);
-    }, 3200);
-  }
-
-  /* ===========================
      SCROLL TO TOP
      =========================== */
   const scrollTopBtn = document.getElementById('scrollTop');
