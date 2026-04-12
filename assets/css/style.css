@@ -1854,15 +1854,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ===========================
    QUOTE FORM SECTION
    =========================== */
-/* Background image URL: replace with your own logistics/warehouse photo if needed */
 .quote-section {
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');
-  background-color: #2d0000;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 40%, rgba(22,163,74,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(34,197,94,0.05) 0%, transparent 60%),
+    #f8fafb;
   padding: 100px 0;
   overflow: hidden;
 }
@@ -1870,8 +1867,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(185,28,28,0.84) 0%, rgba(30,0,0,0.93) 100%);
-  z-index: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(22,163,74,0.06) 1px, transparent 0);
+  background-size: 36px 36px;
+  pointer-events: none;
 }
 .quote-inner {
   display: grid;
@@ -1881,7 +1879,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   z-index: 1;
 }
-.quote-info { color: #ffffff; }
+.quote-info { color: var(--dark); }
 .quote-badge {
   display: inline-flex;
   align-items: center;
@@ -1890,9 +1888,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #fca5a5;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.22);
+  color: var(--green);
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
   padding: 6px 16px;
   border-radius: var(--radius-pill);
   margin-bottom: 24px;
@@ -1900,14 +1898,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .quote-hero-title {
   font-size: clamp(24px, 3.2vw, 38px);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--dark);
   line-height: 1.2;
   letter-spacing: -0.03em;
   margin-bottom: 18px;
 }
 .quote-hero-subtitle {
   font-size: 16px;
-  color: rgba(255,255,255,0.72);
+  color: var(--gray);
   line-height: 1.65;
   margin-bottom: 0;
 }
@@ -1917,12 +1915,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 14px;
   font-size: 14.5px;
-  color: rgba(255,255,255,0.82);
+  color: var(--dark);
   font-weight: 500;
 }
 .quote-point-dot {
   width: 28px; height: 28px;
-  background: linear-gradient(135deg, #dc2626 0%, #f87171 100%);
+  background: var(--green-gradient);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1930,7 +1928,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: white;
   font-size: 12px;
   flex-shrink: 0;
-  box-shadow: 0 2px 10px rgba(220,38,38,0.45);
+  box-shadow: 0 2px 10px rgba(22,163,74,0.35);
 }
 .quote-form {
   background: var(--white);
@@ -1981,9 +1979,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .quote-section .form-input:focus,
 .quote-section .form-select:focus,
 .quote-section .form-textarea:focus {
-  border-color: #dc2626;
-  box-shadow: 0 0 0 4px rgba(220,38,38,0.12);
-  background: #fff5f5;
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(22,163,74,0.1);
+  background: #fafffe;
 }
 .form-textarea { resize: vertical; min-height: 90px; }
 .form-row {
@@ -2017,12 +2015,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .form-submit:active { transform: translateY(0); }
 .quote-section .form-submit {
-  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-  box-shadow: 0 4px 20px rgba(220,38,38,0.40);
+  background: var(--green-gradient);
+  box-shadow: 0 4px 20px rgba(22,163,74,0.40);
 }
 .quote-section .form-submit:hover {
-  background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
-  box-shadow: 0 10px 32px rgba(220,38,38,0.55);
+  background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+  box-shadow: 0 10px 32px rgba(22,163,74,0.55);
 }
 .quote-section .form-input,
 .quote-section .form-select,
@@ -2285,7 +2283,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .services-grid { grid-template-columns: 1fr 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .quote-inner { grid-template-columns: 1fr; gap: 48px; }
-  .quote-section { background-attachment: scroll; }
   .cta-inner { flex-direction: column; align-items: flex-start; gap: 36px; }
   .cta-actions { align-items: flex-start; }
   .process-flow { flex-wrap: wrap; gap: 16px; }
