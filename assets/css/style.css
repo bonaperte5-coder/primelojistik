@@ -1596,6 +1596,35 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ===========================
+   NASIL ÇALIŞIYORUZ — Photo Background
+   =========================== */
+.nasil-section {
+  position: relative;
+  background-image: url('../img/tir-organizasyonu.jpg');
+  background-color: #0b1a10;
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: scroll;
+}
+.nasil-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(5,18,10,0.84) 0%, rgba(8,22,14,0.78) 100%);
+  z-index: 0;
+}
+.nasil-tag {
+  background: rgba(34,197,94,0.12) !important;
+  border-color: rgba(34,197,94,0.30) !important;
+  color: #86efac !important;
+}
+.nasil-tag::before { background: #86efac !important; }
+.nasil-title {
+  color: #ffffff !important;
+}
+.nasil-title span { color: var(--green-light) !important; }
+.nasil-subtitle { color: rgba(255,255,255,0.62) !important; }
+
+/* ===========================
    ADVANTAGES — Premium Redesign
    =========================== */
 .adv-section {
@@ -1750,7 +1779,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background:
     radial-gradient(ellipse 70% 70% at 20% 50%, rgba(22,163,74,0.22) 0%, transparent 60%),
     radial-gradient(ellipse 50% 60% at 80% 50%, rgba(34,197,94,0.10) 0%, transparent 60%),
-    linear-gradient(135deg, #111827 0%, #1a1a2e 100%);
+    linear-gradient(135deg, #0a1a0e 0%, #0f2018 100%);
   padding: 88px 0;
   position: relative;
   overflow: hidden;
@@ -2048,7 +2077,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(17,24,39,0.88) 0%, rgba(15,30,20,0.93) 100%);
+  background: linear-gradient(135deg, rgba(5,18,10,0.88) 0%, rgba(8,25,15,0.93) 100%);
   z-index: 0;
 }
 .quote-inner {
