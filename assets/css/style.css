@@ -1138,10 +1138,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .svc-section {
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80');
+  background-image: url('../img/hizmetler-bg.jpg');
   background-color: #0b1612;
   background-size: cover;
-  background-position: center 35%;
+  background-position: center 40%;
   background-attachment: scroll;
 }
 
