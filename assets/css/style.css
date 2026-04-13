@@ -1136,27 +1136,30 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    HIZMETLER — BANNER + CARDS
    =========================== */
 
-/* Background image spans the WHOLE section (banner + cards) */
 .svc-section {
   position: relative;
   background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80');
-  background-color: #0a120c;
+  background-color: #0b1612;
   background-size: cover;
-  background-position: center center;
+  background-position: center 35%;
   background-attachment: scroll;
 }
 
-/* --- Banner: dark overlay only on the top (text) area --- */
+/* --- Banner header --- */
 .svc-banner {
   position: relative;
-  min-height: 480px;
   display: flex;
   align-items: center;
 }
 .svc-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.45) 100%);
+  background: linear-gradient(
+    170deg,
+    rgba(5,15,10,0.82) 0%,
+    rgba(10,20,15,0.74) 60%,
+    rgba(5,15,10,0.60) 100%
+  );
   z-index: 0;
 }
 .svc-banner .container {
@@ -1166,52 +1169,104 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .svc-banner-content {
   text-align: center;
-  padding: 96px 0 100px;
+  padding: 100px 0 80px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 .svc-banner-tag {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--green-light);
-  background: rgba(34,197,94,0.12);
-  border: 1px solid rgba(34,197,94,0.30);
-  padding: 6px 18px;
+  background: rgba(34,197,94,0.10);
+  border: 1px solid rgba(34,197,94,0.28);
+  padding: 7px 20px;
   border-radius: var(--radius-pill);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
+}
+.svc-banner-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--green-light);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 2s infinite;
+  flex-shrink: 0;
 }
 .svc-banner-title {
-  font-size: clamp(36px, 6vw, 68px);
+  font-size: clamp(38px, 5.5vw, 64px);
   font-weight: 900;
   color: #ffffff;
   letter-spacing: -0.04em;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  line-height: 1.08;
+  margin-bottom: 22px;
   font-family: 'Manrope', sans-serif;
 }
 .svc-banner-subtitle {
-  font-size: 17px;
-  color: rgba(255,255,255,0.70);
-  margin-bottom: 36px;
-  line-height: 1.5;
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  font-weight: 400;
 }
 .svc-banner-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  margin-bottom: 52px;
 }
 
-/* --- Cards area: transparent so image shows through --- */
+/* Trust strip */
+.svc-trust-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-pill);
+  padding: 14px 32px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.svc-trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.svc-trust-num {
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-family: 'Manrope', sans-serif;
+}
+.svc-trust-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.50);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.svc-trust-sep {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+/* --- Cards area --- */
 .svc-cards-area {
   position: relative;
   z-index: 2;
-  padding-top: 56px;
+  padding-top: 0;
   padding-bottom: 80px;
-  /* semi-transparent overlay to darken image slightly behind cards */
-  background: rgba(0,0,0,0.28);
+  background: rgba(4,12,8,0.55);
 }
 .svc-grid {
   display: grid;
@@ -1220,42 +1275,59 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: stretch;
 }
 .svc-card {
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1.5px solid rgba(255, 255, 255, 0.60);
-  border-radius: 20px;
-  padding: 36px 32px 28px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.70);
+  border-radius: 18px;
+  padding: 32px 28px 26px;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.12);
+  transition: all 0.26s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.28), 0 1px 6px rgba(0,0,0,0.14);
   overflow: hidden;
 }
 .svc-card:hover {
-  background: rgba(255, 255, 255, 0.96);
+  background: #ffffff;
   border-color: var(--green-border);
-  transform: translateY(-6px);
-  box-shadow: 0 24px 56px rgba(0,0,0,0.30), 0 8px 20px rgba(22,163,74,0.18);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.32), 0 6px 16px rgba(22,163,74,0.14);
 }
-/* Featured card */
+/* Featured card — Prime Express öne çıkan */
 .svc-featured {
-  background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(22,163,74,0.55);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 4px 12px rgba(22,163,74,0.20);
+  background: #ffffff;
+  border-color: rgba(22,163,74,0.40);
+  box-shadow: 0 8px 36px rgba(0,0,0,0.30), 0 2px 10px rgba(22,163,74,0.18);
 }
 .svc-featured::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 4px;
+  height: 3px;
   background: var(--green-gradient);
-  border-radius: 20px 20px 0 0;
+  border-radius: 18px 18px 0 0;
 }
 .svc-featured:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 32px 64px rgba(0,0,0,0.30), 0 8px 20px rgba(22,163,74,0.28);
+  transform: translateY(-7px);
+  box-shadow: 0 28px 56px rgba(0,0,0,0.32), 0 6px 18px rgba(22,163,74,0.24);
+}
+/* Prime mark — brand identifier on featured card */
+.svc-prime-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  margin-bottom: 18px;
+  width: fit-content;
 }
 .svc-badge {
   display: inline-flex;
@@ -1326,15 +1398,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .svc-benefits {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px;
+  margin: 0 0 26px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
 }
 .svc-benefits li {
   font-size: 13px;
-  color: #4b5563;
+  color: #374151;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.svc-benefits li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 .svc-cta {
   display: inline-flex;
@@ -1383,7 +1466,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 640px) {
   .svc-grid { grid-template-columns: 1fr; }
   .svc-featured { grid-column: span 1; }
-  .svc-banner-content { padding: 72px 0 80px; }
+  .svc-banner-content { padding: 72px 0 64px; }
+  .svc-trust-strip { gap: 18px; padding: 12px 20px; }
+  .svc-trust-num { font-size: 15px; }
   .svc-section { background-attachment: scroll; }
 }
 
