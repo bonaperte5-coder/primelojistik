@@ -6,19 +6,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ===========================
-     PRELOADER
-     =========================== */
-  const preloader = document.getElementById('preloader');
-  if (preloader) {
-    const hidePreloader = () => preloader.classList.add('hidden');
-    if (document.readyState === 'complete') {
-      setTimeout(hidePreloader, 200);
-    } else {
-      window.addEventListener('load', () => setTimeout(hidePreloader, 200));
-    }
-  }
-
-  /* ===========================
      SCROLL PROGRESS BAR
      =========================== */
   const scrollProgress = document.getElementById('scrollProgress');
