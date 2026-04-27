@@ -111,6 +111,118 @@
       opacity: 0.8;
     }
 
+    /* İsmin Hikayesi */
+    .corp-brand {
+      padding: 88px 0;
+      background: var(--dark);
+    }
+    .corp-brand .corp-section-label { color: #22c55e; }
+    .corp-brand .corp-section-title { color: #fff; }
+    .corp-brand .corp-section-title span { color: #22c55e; }
+    .corp-brand-intro {
+      font-size: 17px;
+      color: rgba(255,255,255,.5);
+      margin: 12px 0 52px;
+      font-style: italic;
+      letter-spacing: .01em;
+    }
+    .corp-brand-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .corp-brand-word { padding: 48px 44px; }
+    .corp-brand-word--prime {
+      background: rgba(22,163,74,.1);
+      border-right: 1px solid rgba(255,255,255,.07);
+    }
+    .corp-brand-word-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .corp-brand-word--prime .corp-brand-word-text { color: #22c55e; }
+    .corp-brand-word--express .corp-brand-word-text { color: #fff; }
+    .corp-brand-word-origin {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .corp-brand-word-def {
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,.82);
+      margin-bottom: 10px;
+    }
+    .corp-brand-word-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.7;
+    }
+    .corp-brand-slogan {
+      text-align: center;
+      padding: 52px 40px;
+      background: rgba(22,163,74,.1);
+      border: 1px solid rgba(22,163,74,.25);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .corp-brand-slogan::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 32px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 160px;
+      font-weight: 900;
+      color: rgba(22,163,74,.1);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .corp-brand-slogan-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #22c55e;
+      margin-bottom: 18px;
+    }
+    .corp-brand-slogan-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.015em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .corp-brand-slogan-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,.55);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+    @media (max-width: 768px) {
+      .corp-brand-split { grid-template-columns: 1fr; }
+      .corp-brand-word--prime { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .corp-brand-word { padding: 36px 28px; }
+    }
+
     /* Vizyon & Misyon */
     .corp-vm {
       padding: 80px 0;
@@ -438,6 +550,36 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- İSMİN HİKAYESİ -->
+<section class="corp-brand" id="ismin-hikayesi" aria-labelledby="brand-title">
+  <div class="container">
+    <div class="corp-section-label">İsmin Hikayesi</div>
+    <h2 class="corp-section-title" id="brand-title">Neden <span>Prime Express?</span></h2>
+    <p class="corp-brand-intro">Bir isim rastgele seçilmez. Her kelime, bir vaadin özüdür.</p>
+
+    <div class="corp-brand-split">
+      <div class="corp-brand-word corp-brand-word--prime fade-in">
+        <div class="corp-brand-word-text">PRIME</div>
+        <div class="corp-brand-word-origin">Latince · <em>primus</em> · İngilizce · <em>prime</em></div>
+        <div class="corp-brand-word-def">Birinci. En üstün. Birinci sınıf.</div>
+        <p class="corp-brand-word-desc">Lojistikte kaliteden ödün vermemek, her müşteriyi birinci sıraya koymak demektir. <strong style="color:rgba(255,255,255,.75);">Prime</strong> kelimesini seçtik çünkü sunduğumuz hizmetin standartlarının her zaman en üstte olmasını taahhüt ediyoruz — filo bakımından personel eğitimine, ambalajdan teslimat raporuna kadar.</p>
+      </div>
+      <div class="corp-brand-word corp-brand-word--express fade-in fade-in-delay-1">
+        <div class="corp-brand-word-text">EXPRESS</div>
+        <div class="corp-brand-word-origin">İngilizce · <em>express</em> · Latince · <em>expressus</em></div>
+        <div class="corp-brand-word-def">Hızlı. Doğrudan. Gecikme olmaksızın.</div>
+        <p class="corp-brand-word-desc">Lojistikte hız, kaliteden ayrı düşünülemez. <strong style="color:rgba(255,255,255,.75);">Express</strong> kelimesi zamanında teslim taahhüdümüzü simgeler; ama bu hız bürokratik aceleciliğin değil, planlı ve sistematik operasyonun ürünüdür. Her sevkiyat, önceden kurulmuş bir planın doğal sonucudur.</p>
+      </div>
+    </div>
+
+    <div class="corp-brand-slogan fade-in">
+      <div class="corp-brand-slogan-label">Sloganımız</div>
+      <div class="corp-brand-slogan-text">"Prime Kalite, Express Hız —<br/>Her Sevkiyatta."</div>
+      <p class="corp-brand-slogan-sub">İki kelimenin birleşimi tek bir taahhüdü anlatır: kaliteden ödün vermeden maksimum hız. 2010'dan bu yana binlerce operasyonda bunu kanıtladık; bundan sonra da her yükte, her güzergahta, aynı kararlılıkla kanıtlamaya devam edeceğiz.</p>
     </div>
   </div>
 </section>
