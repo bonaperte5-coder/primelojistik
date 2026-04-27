@@ -1220,15 +1220,34 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: 0 4px 24px rgba(0,0,0,0.28), 0 1px 6px rgba(0,0,0,0.14);
   overflow: hidden;
 }
+.svc-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+  flex-shrink: 0;
+}
 .svc-card-img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
   display: block;
-  border-radius: 18px 18px 0 0;
+  border-radius: 0;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.svc-card:hover .svc-card-img {
+  transform: scale(1.04);
+}
+.svc-card-img-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.98) 100%);
+  pointer-events: none;
 }
 .svc-card-body-wrap {
-  padding: 22px 28px 0;
+  padding: 18px 28px 0;
   display: flex;
   flex-direction: column;
   flex: 1;
