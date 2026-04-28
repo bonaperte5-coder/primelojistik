@@ -1075,6 +1075,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .svc-section {
   position: relative;
   background-color: #142b1e;
+  background-image: url('../img/hizmet-section-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
 }
 
 /* --- Banner header --- */
@@ -1198,7 +1202,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 2;
   padding-top: 0;
   padding-bottom: 80px;
-  background: #142b1e;
+  background: rgba(14, 32, 20, 0.78);
 }
 .svc-grid {
   display: grid;
