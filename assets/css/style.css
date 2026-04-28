@@ -1074,7 +1074,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .svc-section {
   position: relative;
-  background-color: #0b1612;
+  background-color: #142b1e;
 }
 
 /* --- Banner header --- */
@@ -1088,9 +1088,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   inset: 0;
   background: linear-gradient(
     170deg,
-    rgba(5,15,10,0.82) 0%,
-    rgba(10,20,15,0.74) 60%,
-    rgba(5,15,10,0.60) 100%
+    rgba(12,32,20,0.80) 0%,
+    rgba(18,42,26,0.70) 60%,
+    rgba(12,32,20,0.55) 100%
   );
   z-index: 0;
 }
@@ -1198,7 +1198,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 2;
   padding-top: 0;
   padding-bottom: 80px;
-  background: #0b1612;
+  background: #142b1e;
 }
 .svc-grid {
   display: grid;
@@ -1207,7 +1207,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: stretch;
 }
 .svc-card {
-  background: #0a1a10;
+  background: #163322;
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 18px;
   padding: 0;
