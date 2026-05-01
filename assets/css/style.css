@@ -1599,7 +1599,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    =========================== */
 .adv-section {
   position: relative;
-  background-image: url('../img/hizmetler-bg.jpg');
+  background-image: url('../img/hizmetler-bg.webp');
   background-color: #0b1612;
   background-size: cover;
   background-position: center 50%;
